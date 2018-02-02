@@ -56,7 +56,7 @@ summary(gapminder)
 Suppose we only wanted to get the _mean_ life expectancy. To do this we can use the built-in function `mean()`. To select only the "lifeExp" variable, we can either refer to it by which column it is in the dataset using `gapminder[,4]` which says to select all rows by leaving the 1st element between the `[]` before the comma blank and putting a 4 after the comman which specifies the 4th column. Another way to select a column is to use the name of that column which is "lifeExp" and use the dollar sign `$` selector to get `gapminder$lifeExp`.
 
 ```{r}
-digits=2
+##testing/practicing writing commands
 mean(gapminder$lifeExp)
 sd(gapminder$lifeExp)
 median(gapminder$lifeExp)
@@ -70,7 +70,7 @@ We can use the same command above, but call it "inline" instead of as a separate
 The mean life expectancy is `r mean(gapminder$lifeExp)`.
 
 
-We can clean this up further by wrapping this command within the `round()` function and specifying the number of digits we want reported for this numeric result. This time, use the following command inline _r round(mean(gapminder$lifeExp), digits=2)_ and we'll rewrite the sentence below.
+We can clean this up further by wrapping this command within the `round()` function and specifying the number of digits we want reported for this numeric result. This time, use the following command inline _r round(mean(gapminder$lifeExp), digits=2)_ to rewrite the sentence below to include median, sd and sample size.
 
 The mean life expectancy is `r round(mean(gapminder$lifeExp), digits=2)` years, the median life expectancy is `r round(median(gapminder$lifeExp), digits=2)`, the standard deviation of the life expectancy is `r round(sd(gapminder$lifeExp), digits=2)`, and the sample size is `r round(length(gapminder$lifeExp), digits =2)`.
 
@@ -105,10 +105,12 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(outlier.colour = "hotpink") +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 
+###Plot GDP Per Capita by Contient
 ggplot(gapminder, aes(x = continent, y = gdpPercap)) +
   geom_boxplot(outlier.colour = "hotpink") +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 
+###Plot Population by Continent
 ggplot(gapminder, aes(x = continent, y = pop)) +
   geom_boxplot(outlier.colour = "hotpink") +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
